@@ -1,0 +1,35 @@
+// NativeAddIn.idl : NativeAddIn 的 IDL 源
+//
+
+// 此文件将由 MIDL 工具处理以
+// 产生类型库(NativeAddIn.tlb)和封送处理代码。
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+[
+	object,
+	uuid(B19AC332-2EEC-4D4A-BA31-A654FC67DF3D),
+	dual,
+	nonextensible,
+	pointer_default(unique)
+]
+interface IConnect : IDispatch{
+};
+[
+	uuid(D355D816-C830-4798-A48A-370F4BAB7850),
+	version(1.0),
+]
+library NativeAddInLib
+{
+	importlib("stdole2.tlb");
+	[
+		uuid(31FAF0BC-A7F5-477F-B9FC-90DC9E6CC8FF)		
+	]
+	coclass Connect
+	{
+		[default] interface IConnect;
+	};
+};
+
+import "shobjidl.idl";
