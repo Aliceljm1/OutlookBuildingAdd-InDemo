@@ -22,7 +22,10 @@ class ATL_NO_VTABLE CConnect :
 	public CComObjectRootEx<CComSingleThreadModel>,
 	public CComCoClass<CConnect, &CLSID_Connect>,
 	public IDispatchImpl<IConnect, &IID_IConnect, &LIBID_NativeAddInLib, /*wMajor =*/ 1, /*wMinor =*/ 0>,
-	public IDispatchImpl<_IDTExtensibility2, &__uuidof(_IDTExtensibility2), &LIBID_AddInDesignerObjects, /* wMajor = */ 1>
+	public IDispatchImpl<_IDTExtensibility2, &__uuidof(_IDTExtensibility2), &LIBID_AddInDesignerObjects, /* wMajor = */ 1>,
+	public IDispatchImpl<IRibbonExtensibility, &__uuidof(IRibbonExtensibility), &LIBID_AddInDesignerObjects, /* wMajor = */ 1>
+
+	
 {
 public:
 	CConnect()
@@ -36,6 +39,7 @@ public:
 		COM_INTERFACE_ENTRY(IConnect)
 		COM_INTERFACE_ENTRY2(IDispatch, _IDTExtensibility2)
 		COM_INTERFACE_ENTRY(_IDTExtensibility2)
+		COM_INTERFACE_ENTRY(IRibbonExtensibility)
 	END_COM_MAP()
 
 
@@ -53,7 +57,14 @@ public:
 
 public:
 
-
+	public:
+STDMETHOD(GetCustomUI)(BSTR RibbonID, BSTR * RibbonXml)
+{
+    if(!RibbonXml)
+        return E_POINTER;
+    *RibbonXml = CComBSTR("XML GOES HERE");  
+    return S_OK;
+}
 
 
 	// _IDTExtensibility2 Methods

@@ -8,6 +8,8 @@ Release
 x63
 Win32
 
+*.opensdf
+*.ipch
 *.sdf
 *.tlog
 *.obj

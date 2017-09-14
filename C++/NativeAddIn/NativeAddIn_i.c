@@ -6,7 +6,7 @@
 
 
  /* File created by MIDL compiler version 7.00.0555 */
-/* at Mon Aug 21 21:00:51 2017
+/* at Thu Sep 14 19:43:21 2017
  */
 /* Compiler settings for NativeAddIn.idl:
     Oicf, W1, Zp8, env=Win32 (32b run), target_arch=X86 7.00.0555 
